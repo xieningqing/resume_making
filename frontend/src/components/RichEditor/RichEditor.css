@@ -1,0 +1,303 @@
+.rich-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: none;
+  background: white;
+  position: relative;
+}
+
+.rich-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rich-editor-toolbar button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  transition: all 0.15s;
+}
+
+.rich-editor-toolbar button:hover {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+
+.rich-editor-toolbar button.active {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.rich-editor-toolbar button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.rich-editor-toolbar button svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--gray-300);
+  margin: 0 4px;
+}
+
+/* Heading toolbar - collapsible */
+.heading-toolbar {
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+  animation: slideDown 0.2s ease-out;
+}
+
+.heading-toolbar button {
+  width: 36px;
+  font-weight: 700;
+}
+
+/* Table toolbar - collapsible */
+.table-toolbar {
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+  animation: slideDown 0.2s ease-out;
+}
+
+.table-toolbar button {
+  width: auto !important;
+  height: auto !important;
+  padding: 0 8px;
+  gap: 4px;
+}
+
+.table-toolbar button span {
+  font-size: 12px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 50px;
+  }
+}
+
+/* Table floating toolbar */
+.table-floating-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  background: var(--gray-800);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.rich-editor .table-floating-toolbar button {
+  border: none;
+  background: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--gray-200);
+  transition: all 0.15s;
+}
+
+.rich-editor .table-floating-toolbar button:hover {
+  background: var(--gray-600);
+  color: white;
+}
+
+.rich-editor .table-floating-toolbar button.delete-btn:hover {
+  background: var(--red-500);
+  color: white;
+}
+
+.table-floating-toolbar .toolbar-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--gray-600);
+  margin: 0 2px;
+}
+
+/* TipTap editor content area */
+.rich-editor .tiptap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+  outline: none;
+}
+
+.rich-editor .tiptap p {
+  margin-bottom: 0.5em;
+  line-height: 1.7;
+}
+
+.rich-editor .tiptap h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid var(--primary-500);
+  padding-bottom: 0.3em;
+}
+
+.rich-editor .tiptap h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--primary-600);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.rich-editor .tiptap h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+}
+
+.rich-editor .tiptap ul,
+.rich-editor .tiptap ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.rich-editor .tiptap li {
+  margin-bottom: 0.25em;
+}
+
+.rich-editor .tiptap hr {
+  border: none;
+  border-top: 1px solid var(--gray-200);
+  margin: 1em 0;
+}
+
+.rich-editor .tiptap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin: 0.5em 0;
+}
+
+.rich-editor .tiptap blockquote {
+  border-left: 3px solid var(--primary-300);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--gray-600);
+}
+
+.rich-editor .tiptap code {
+  background: var(--gray-100);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: var(--font-mono);
+}
+
+.rich-editor .tiptap pre {
+  background: var(--gray-900);
+  color: var(--gray-100);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin-bottom: 0.5em;
+}
+
+.rich-editor .tiptap pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.rich-editor .tiptap a {
+  color: var(--primary-600);
+  text-decoration: underline;
+}
+
+.rich-editor .tiptap s {
+  color: var(--gray-400);
+}
+
+.rich-editor .tiptap u {
+  text-decoration: underline;
+}
+
+/* Selected table cell */
+.rich-editor .tiptap .selectedCell {
+  background: var(--primary-50);
+}
+
+/* Table resize handle */
+.rich-editor .tiptap .column-resize-handle {
+  background: var(--primary-400);
+  width: 2px;
+}
+
+/* Tables in TipTap editor */
+.rich-editor .tiptap table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5em 0;
+}
+
+.rich-editor .tiptap table th,
+.rich-editor .tiptap table td {
+  border: 1px solid var(--gray-200);
+  padding: 4px 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rich-editor .tiptap table th {
+  background: var(--gray-50);
+  font-weight: 600;
+  font-size: 0.85em;
+  color: var(--gray-600);
+}
+
+.rich-editor .tiptap table td:first-child {
+  text-align: left;
+  color: var(--gray-500);
+  font-size: 0.85em;
+}
+
+.rich-editor .tiptap table td:last-child {
+  text-align: right;
+  color: var(--gray-600);
+  font-size: 0.85em;
+}
+
+.rich-editor .tiptap p.is-editor-empty:first-child::before {
+  color: var(--gray-400);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

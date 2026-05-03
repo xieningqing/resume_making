@@ -1,0 +1,37 @@
+.draggable-divider {
+  width: 10px;
+  background: var(--gray-200);
+  cursor: col-resize;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.draggable-divider:hover {
+  background: var(--primary-300);
+}
+
+.draggable-divider.dragging {
+  background: var(--primary-400);
+}
+
+.draggable-divider-handle {
+  width: 4px;
+  height: 40px;
+  background: var(--gray-400);
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.draggable-divider:hover .draggable-divider-handle {
+  background: var(--primary-600);
+}
+
+.draggable-divider.dragging .draggable-divider-handle {
+  background: white;
+}
